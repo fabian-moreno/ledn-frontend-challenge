@@ -26,10 +26,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "npm run test -- --coverage .",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"src/client/**/*.+(ts|tsx)\"",
     "lint:ts": "eslint . ./src/client/**/*.{ts,tsx} --fix",
     "lint": "npm run prettier && npm run lint:ts"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +50,7 @@
     "rules": {
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
+      "jest/no-mocks-import": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "newline-before-return": "error",
@@ -122,8 +129,6 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "jest": "27.5.1",
     "miragejs": "0.1.48",
-    "msw": "^2.3.1",
-    "nock": "^13.5.4",
     "prettier": "^3.3.2"
   }
 }
